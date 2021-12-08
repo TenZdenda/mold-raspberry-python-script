@@ -1,9 +1,12 @@
 import socket
 import time
+from MeasurementReader import response
 
-messageFromClient = "Connected"
+
+messageFromClient = response
 bytesToSend = str.encode(messageFromClient)
-serverIPAddress   = "http://localhost:23864/api/MoldProjectAPI"
+
+serverIPAddress   = "255.255.255.255"
 serverPort = 10100
 bufferSize = 1024
 
@@ -15,3 +18,5 @@ UDPClientSocket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
 # Send to server using created UDP socket
 UDPClientSocket.sendto(bytesToSend, (serverIPAddress, serverPort))
+
+
